@@ -6,17 +6,11 @@ $sum = 0;
 foreach ($file as $line)
 {
 	preg_match('%.*?(\d).*(\d).*%', $line, $matches);
+	preg_match('%(\d)%', $line, $matches2);
 
-	if (count($matches) >= 3)
-	{
-		$sum += "{$matches[1]}{$matches[2]}";
-	}
-	else
-	{
-		preg_match('%\d%', $line, $matches);
-
-		$sum += "{$matches[0]}{$matches[0]}";
-	}
+	$sum += count($matches) >= 3
+		? "{$matches[1]}{$matches[2]}"
+		: "{$matches2[0]}{$matches2[0]}";
 }
 
 echo $sum, "\n";
