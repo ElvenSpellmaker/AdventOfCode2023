@@ -6,7 +6,6 @@ $sum = 0;
 $game = 1;
 foreach ($file as $line)
 {
-	$valid = true;
 	$picks = explode(';', $line);
 	$need = ['red' => 0, 'green' => 0, 'blue' => 0];
 	foreach ($picks as $pick)
