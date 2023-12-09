@@ -25,8 +25,7 @@ foreach ($instructions as $instruction)
 }
 
 $steps = 0;
-$currCount = count($currs);
-$endZ = [];
+$endZ = 1;
 do
 {
 	$dir = $steps % $dirCount;
@@ -38,13 +37,11 @@ do
 
 		if ($curr[-1] === 'Z')
 		{
-			$endZ[] = $steps;
+			$endZ = gmp_lcm($endZ, $steps);
 			unset($currs[$key]);
 		}
 	}
 }
-while (count($endZ) !== $currCount);
+while (count($currs));
 
-echo array_reduce($endZ, function($carry, $item) {
-	return gmp_lcm($carry, $item);
-}, 1), "\n";
+echo $endZ, "\n";
