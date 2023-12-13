@@ -13,12 +13,9 @@ $sum = 0;
 
 for ($col = 0; $col < strlen($file[0]); $col++)
 {
-	$column = '';
 	$hashSeen = false;
 	foreach ($file as $row => $line)
 	{
-		$column .= $line[$col];
-
 		if ($line[$col] === '#')
 		{
 			$hashSeen = true;
