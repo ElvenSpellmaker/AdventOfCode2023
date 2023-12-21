@@ -346,10 +346,8 @@ for ($y = 0; $y < $maxY; $y++)
 					}
 					elseif (isset($outsideTiles[$stY . ':' . $stX - 1]))
 					{
-						{
-							$outsideTiles[$y . ':' . $x] = 1;
-							unset($findBlocks[$stY . ':' . $stX]);
-						}
+						$outsideTiles[$y . ':' . $x] = 1;
+						unset($findBlocks[$stY . ':' . $stX]);
 					}
 
 					if (! isset($creepedSquares[$stY . ':' . $stX + 1]))
